@@ -1,6 +1,6 @@
 class Person
-	attr_reader :caffeine_level, :name
-	def initialize(name,caffeine_level)
+	attr_accessor :caffeine_level, :name
+	def initialize(name, caffeine_level)
 		@name = name
 		@caffeine_level = caffeine_level
 	end
@@ -79,16 +79,21 @@ class EvilNinja < Person
 end
 
 
+def fight_scene
+	per1 = Person.new("bob",5)
+	per2 = Person.new("joe",5)
 
-#fight scene
-per1 = Person.new("bob",5)
-per2 = Person.new("joe",5)
+	power1 = PowerRanger.new("sam",25,10,'blue')
+	power2 = PowerRanger.new("sarah",25,10,'red')
 
-power1 = PowerRanger.new("sam",25,10,'blue')
-power2 = PowerRanger.new("sarah",25,10,'red')
+	ninja1 = EvilNinja.new("graphm",20,20,20)
+	ninja2 = EvilNinja.new("wanda",20,20,20)
 
-ninja1 = EvilNinja.new("graphm",20,20,20)
-ninja2 = EvilNinja.new("wanda",20,20,20)
+	per1.drink_coffee
+	ninja1.fight(per1)
+	ninja2.cause_mayhem(per2)
+	power1.fight(ninja1)
+	power2.megazord(ninja1)
+end
 
-power1.fight(ninja1)
-ninja1.fight(per1)
+fight_scene
